@@ -1,0 +1,30 @@
+[project]
+name = "clog"
+version = "0.1.0"
+description = "Terminal-based training logger for PyTorch models"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "numpy",
+]
+
+[dependency-groups]
+dev = [
+    "maturin>=1.8.6",
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
+[build-system]
+requires = ["maturin>=1.8.6"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/auto-initialize"]
+module-name = "clog._rust"
